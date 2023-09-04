@@ -10,7 +10,7 @@ async function getLoop() {
       "Access-Control-Allow-Origin": "*",
       "Content-Type": "application/json",
     },
-    body: {
+    data: {
       deposit: parseFloat($("#deposit-input").val()),
       centsDiff: parseFloat($("#spread-input").val()),
     },
