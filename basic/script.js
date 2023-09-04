@@ -10,6 +10,10 @@ async function getLoop() {
       "Access-Control-Allow-Origin": "*",
       "Content-Type": "application/json",
     },
+    body: {
+      deposit: parseFloat($("#deposit-input").val()),
+      centsDiff: parseFloat($("#spread-input").val()),
+    },
   };
 
   return $.ajax(settings).done(function (response) {
