@@ -12,26 +12,20 @@ async function getLoop() {
     },
   };
 
-  $.ajax(settings).done(function (response) {
-    console.log(response);
+  return $.ajax(settings).done(function (response) {
     return response;
   });
 }
 
 $("#update-submit").on("click", async function () {
-  const response = await getLoop();
-  console.log(response);
+  const loopData = await getLoop();
+  document.querySelector("#loops-body").innerHTML = "";
+  const templateLoop = document.querySelector("#loop-body-template").innerHTML;
+  const templateLoopFunc = Handlebars.compile(templateLoop);
+  console.log(loopData);
+  loopData?.forEach((data) => {
+    const templateResult = templateLoopFunc(data);
+    console.log(templateResult);
+    $("#loops-body").append(templateResult);
+  });
 });
-
-// $('#refresh-loops').on('click', async function() {
-//     const result = await doLoops();
-//     document.querySelector("#loops-body").innerHTML = '';
-//     const templateLoop = document.querySelector("#loop-body-template").innerHTML;
-//     const templateLoopFunc = Handlebars.compile(templateLoop);
-//     const loopData = result;
-//     loopData.forEach(data => {
-//       const templateResult = templateLoopFunc(data);
-//       console.log(templateResult);
-//       $('#loops-body').append(templateResult);
-//     });
-//   });
