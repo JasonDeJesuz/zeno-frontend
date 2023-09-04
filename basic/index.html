@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>replit</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link
+      href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <header class="bg-white">
+    <nav
+      class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+      aria-label="Global"
+    >
+      <div class="flex lg:flex-1">
+        <a href="#" class="-m-1.5 p-1.5">
+          <span class="sr-only">Your Company</span>
+          <img class="h-16 w-auto" src="lyemac-desktop-new.png" alt="" />
+        </a>
+      </div>
+      <!-- <div class="hidden lg:flex lg:gap-x-12">
+      <a href="https://google.com" class="text-sm font-semibold leading-6 text-gray-900">Features</a>
+      <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Marketplace</a>
+      <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Company</a>
+    </div> -->
+      <!-- <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+      <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Log in <span
+          aria-hidden="true">&rarr;</span></a>
+    </div> -->
+    </nav>
+    <!-- Mobile menu, show/hide based on menu open state. -->
+    <div class="lg:hidden hidden" role="dialog" aria-modal="true">
+      <!-- Background backdrop, show/hide based on slide-over state. -->
+      <div class="fixed inset-0 z-10"></div>
+      <div
+        class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+      >
+        <div class="flex items-center justify-between">
+          <a href="#" class="-m-1.5 p-1.5">
+            <span class="sr-only">Your Company</span>
+            <img class="h-8 w-auto" src="lyemac-desktop-new.png" alt="" />
+          </a>
+          <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+            <span class="sr-only">Close menu</span>
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="mt-6 flow-root">
+          <div class="-my-6 divide-y divide-gray-500/10">
+            <!-- <div class="space-y-2 py-6">
+            <a href="#"
+              class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Features</a>
+            <a href="#"
+              class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Marketplace</a>
+            <a href="#"
+              class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</a>
+          </div> -->
+            <!-- <div class="py-6">
+            <a href="#"
+              class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log
+              in</a>
+          </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <body>
+    <div class="isolate bg-white px-6 pb-24 sm:pb-32 lg:px-8">
+      <div
+        class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
+        aria-hidden="true"
+      >
+        <div
+          class="relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]"
+          style="
+            clip-path: polygon(
+              74.1% 44.1%,
+              100% 61.6%,
+              97.5% 26.9%,
+              85.5% 0.1%,
+              80.7% 2%,
+              72.5% 32.5%,
+              60.2% 62.4%,
+              52.4% 68.1%,
+              47.5% 58.3%,
+              45.2% 34.5%,
+              27.5% 76.7%,
+              0.1% 64.9%,
+              17.9% 100%,
+              27.6% 76.8%,
+              76.1% 97.7%,
+              74.1% 44.1%
+            );
+          "
+        ></div>
+      </div>
+      <div class="mx-auto max-w-2xl">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          Backtest Arbitrage Calculator
+        </h2>
+        <p class="mt-2 text-lg leading-8 text-gray-600 text-left">
+          It looks shit because it's early stages 🖕 <br />
+        </p>
+      </div>
+
+      <!-- TODO: Implement the simulation for a trade by passing values -->
+      <!-- START: SIMULATION -->
+      <section id="simulate">
+      <form action="" class="mx-auto mt-8 max-w-2xl sm:mt-16">
+      <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+        <div class="sm:col-span-2">
+          <label for="inspiration" class="block text-sm font-semibold leading-6 text-gray-900">Start Date</label>
+          <div class="mt-2.5">
+            <input value="2023-02-15" name="start-date-input" id="start-date-input"
+              class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></input>
+          </div>
+        </div>
+
+        <div class="sm:col-span-2">
+          <label for="inspiration" class="block text-sm font-semibold leading-6 text-gray-900">End Date</label>
+          <div class="mt-2.5">
+            <input value="2023-08-16" name="end-date-input" id="end-date-input"
+              class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></input>
+          </div>
+        </div>
+
+        <div class="sm:col-span-2">
+          <label for="inspiration" class="block text-sm font-semibold leading-6 text-gray-900">Spreads</label>
+          <div class="mt-2.5">
+            <input value="0.06" name="spreads-input" id="spreads-input"
+              class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></input>
+          </div>
+        </div>
+
+        <div class="sm:col-span-2">
+          <label for="inspiration" class="block text-sm font-semibold leading-6 text-gray-900">Starting Capitals</label>
+          <div class="mt-2.5">
+            <input value="200000" name="deposits-input" id="deposits-input"
+              class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></input>
+          </div>
+        </div>
+
+        <div class="sm:col-span-2">
+          <label for="inspiration" class="block text-sm font-semibold leading-6 text-gray-900">Include Loses</label>
+          <div class="mt-2.5">
+            <input value="true" name="loses-input" id="loses-input"
+              class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></input>
+          </div>
+        </div>
+      </div>
+      <div class="mt-2">
+        <button id="get-spread-from-api-btn" type="button"
+          class="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Backtest 🧙‍♂️</button>
+      </div>
+    </form>
+    </section>
+      <!-- END: SIMULATION -->
+
+      <!-- <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <dl class="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
+        <div class="mx-auto flex max-w-xs flex-col gap-y-4">
+          <dt class="text-base leading-7 text-gray-600">Spot USDT/ZAR</dt>
+          <dd id="spot" class="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">0.00</dd>
+        </div>
+        <div class="mx-auto flex max-w-xs flex-col gap-y-4">
+          <dt class="text-base leading-7 text-gray-600">VALR USDT/ZAR</dt>
+          <dd id="valr" class="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">0.00</dd>
+        </div>
+        <div class="mx-auto flex max-w-xs flex-col gap-y-4">
+          <dt class="text-base leading-7 text-gray-600">Spread 🔥</dt>
+          <dd id="spread" class="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">0.00</dd>
+        </div>
+      </dl>
+    </div> -->
+
+      <!-- <section id="data-entry">
+      <form action="" class="mx-auto mt-8 max-w-xl sm:mt-16">
+        <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+          <div class="sm:col-span-1">
+            <label for="inspiration" class="block text-sm font-semibold leading-6 text-gray-900">1. Spot USD/ZAR Price</label>
+            <div class="mt-2.5">
+              <input name="spot-input" id="spot-input"
+                class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></input>
+            </div>
+          </div>
+  
+          <div class="sm:col-span-1">
+            <label for="inspiration" class="block text-sm font-semibold leading-6 text-gray-900">2. VALR USDT/ZAR Price</label>
+            <div class="mt-2.5">
+              <input name="valr-input" id="valr-input"
+                class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></input>
+            </div>
+          </div>
+  
+          <!-- <div class="sm:col-span-2">
+            <label for="inspiration" class="block text-sm font-semibold leading-6 text-gray-900">💙 VALR BTC/ZAR Price</label>
+            <div class="mt-2.5">
+              <input name="valr-btc-input" id="valr-btc-input"
+                class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></input>
+            </div>
+          </div>
+  
+          <div class="sm:col-span-2">
+            <label for="inspiration" class="block text-sm font-semibold leading-6 text-gray-900">✏️ Notes</label>
+            <div class="mt-2.5">
+              <textarea name="inspiration" id="inspiration" rows="4"
+                class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="mt-10">
+          <button id="check-spreads" type="button"
+            class="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Check spreads
+            🔥</button>
+        </div>
+        <div class="mt-2">
+          <button id="get-spread-from-api-btn" type="button"
+            class="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Use api values
+            🧙‍♂️</button>
+        </div>
+      </form>
+  </section> -->
+
+      <div
+        class="mx-auto max-w-2xl relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded mt-8"
+      >
+        <div class="rounded-t mb-0 px-4 py-3 border-0">
+          <div class="flex flex-wrap items-center">
+            <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+              <h3 class="font-semibold text-base text-blueGray-700">
+                🔥 Potential Loops
+              </h3>
+            </div>
+            <div
+              class="relative w-full px-4 max-w-full flex-grow flex-1 text-right"
+            >
+              <button
+                id="refresh-loops"
+                class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                type="button"
+              >
+                🔥 Refresh
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="block w-full overflow-x-auto">
+          <table class="items-center bg-transparent w-full border-collapse">
+            <thead>
+              <tr>
+                <th
+                  class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                >
+                  🎯 Date
+                </th>
+                <th
+                  class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                >
+                  🔥 Spread
+                </th>
+                <th
+                  class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                >
+                  💸 Money Out
+                </th>
+                <th
+                  class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                >
+                  💸 Money In
+                </th>
+                <th
+                  class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                >
+                  🤑 Profit
+                </th>
+              </tr>
+            </thead>
+
+            <tbody id="loops-body">
+              <tr>
+                <th
+                  class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700"
+                >
+                  31 July 2023
+                </th>
+                <td
+                  class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                >
+                  4,8%
+                </td>
+                <td
+                  class="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                >
+                  R100,000.00
+                </td>
+                <td
+                  class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                >
+                  <i class="fas fa-arrow-up text-emerald-500 mr-4"></i>
+                  R101,000.00
+                </td>
+                <td
+                  class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                >
+                  <i class="fas fa-arrow-up text-emerald-500 mr-4"></i>
+                  1%
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/flowbite.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="script.js"></script>
+
+    <script id="loop-body-template" type="text/x-handlebars">
+      <tr>
+        <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
+          {{date}}
+        </th>
+        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+          {{spread}}
+        </td>
+        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+          {{moneyOut}}
+        </td>
+        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+          {{moneyIn}}
+        </td>
+        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+          {{profit}}
+        </td>
+      </tr>
+    </script>
+  </body>
+</html>
