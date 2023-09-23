@@ -180,6 +180,10 @@ function fillInfo(info) {
   $("#end-date-input").val(getDate(info.endDate));
   $("#spreads-input").val(info.bankSpread);
   $("#deposits-input").val(info.deposit);
+  $("#result-input").val(info.endResultNorm);
+  $("#profit-input").val(info.totalProfitNorm);
+  $("#executed-input").val(info.tradesExecuted);
+  $("#days-input").val(info.businessDaysAvailable);
 }
 
 function getDate(dateString) {

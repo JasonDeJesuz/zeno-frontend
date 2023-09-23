@@ -97,67 +97,171 @@
         <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
           Backtest
         </h2>
-        <p class="mt-2 text-lg leading-8 text-gray-600 text-left" id="backtestId"></p>
+        <p
+          class="mt-2 text-lg leading-8 text-gray-600 text-left"
+          id="backtestId"
+        ></p>
         <p class="mt-2 text-lg leading-8 text-gray-600 text-left" id="law"></p>
       </div>
 
       <div class="mt-4 mx-auto max-w-2xl">
-        <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl" id="profitability"></h1>
+        <h1
+          class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+          id="profitability"
+        ></h1>
       </div>
 
       <!-- TODO: Implement the simulation for a trade by passing values -->
       <!-- START: SIMULATION -->
       <section id="simulate">
-      <form action="" class="mx-auto mt-4 max-w-2xl sm:mt-8">
-      <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-        <div class="sm:col-span-2">
-          <label for="start-date-input" class="block text-sm font-semibold leading-6 text-gray-900">Start Date</label>
-          <div class="mt-2.5">
-            <input readonly type="date" name="start-date-input" id="start-date-input"
-              class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></input>
-          </div>
-        </div>
+        <form action="" class="mx-auto mt-4 max-w-2xl sm:mt-8">
+          <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+            <div class="sm:col-span-2">
+              <label
+                for="start-date-input"
+                class="block text-sm font-semibold leading-6 text-gray-900"
+                >Start Date</label
+              >
+              <div class="mt-2.5">
+                <input
+                  readonly
+                  type="date"
+                  name="start-date-input"
+                  id="start-date-input"
+                  class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
 
-        <div class="sm:col-span-2">
-          <label for="end-date-input" class="block text-sm font-semibold leading-6 text-gray-900">End Date</label>
-          <div class="mt-2.5">
-            <input readonly type="date" name="end-date-input" id="end-date-input"
-              class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></input>
-          </div>
-        </div>
+            <div class="sm:col-span-2">
+              <label
+                for="end-date-input"
+                class="block text-sm font-semibold leading-6 text-gray-900"
+                >End Date</label
+              >
+              <div class="mt-2.5">
+                <input
+                  readonly
+                  type="date"
+                  name="end-date-input"
+                  id="end-date-input"
+                  class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
 
-        <div class="sm:col-span-2">
-          <label for="spreads-input" class="block text-sm font-semibold leading-6 text-gray-900">Spreads</label>
-          <div class="mt-2.5">
-            <input readonly name="spreads-input" id="spreads-input"
-              class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></input>
-          </div>
-        </div>
+            <div class="sm:col-span-2">
+              <label
+                for="spreads-input"
+                class="block text-sm font-semibold leading-6 text-gray-900"
+                >Spreads</label
+              >
+              <div class="mt-2.5">
+                <input
+                  readonly
+                  name="spreads-input"
+                  id="spreads-input"
+                  class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
 
-        <div class="sm:col-span-2">
-          <label for="deposits-input" class="block text-sm font-semibold leading-6 text-gray-900">Starting Capitals</label>
-          <div class="mt-2.5">
-            <input readonly name="deposits-input" id="deposits-input"
-              class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></input>
+            <div class="sm:col-span-2">
+              <label
+                for="deposits-input"
+                class="block text-sm font-semibold leading-6 text-gray-900"
+                >Starting Capitals</label
+              >
+              <div class="mt-2.5">
+                <input
+                  readonly
+                  name="deposits-input"
+                  id="deposits-input"
+                  class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div class="sm:col-span-2">
+              <label
+                for="result-input"
+                class="block text-sm font-semibold leading-6 text-gray-900"
+                >End Result</label
+              >
+              <div class="mt-2.5">
+                <input
+                  readonly
+                  name="result-input"
+                  id="result-input"
+                  class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div class="sm:col-span-2">
+              <label
+                for="profit-input"
+                class="block text-sm font-semibold leading-6 text-gray-900"
+                >Profit</label
+              >
+              <div class="mt-2.5">
+                <input
+                  readonly
+                  name="profit-input"
+                  id="profit-input"
+                  class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div class="sm:col-span-2">
+              <label
+                for="executed-input"
+                class="block text-sm font-semibold leading-6 text-gray-900"
+                >Trades Executed</label
+              >
+              <div class="mt-2.5">
+                <input
+                  readonly
+                  name="executed-input"
+                  id="executed-input"
+                  class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div class="sm:col-span-2">
+              <label
+                for="days-input"
+                class="block text-sm font-semibold leading-6 text-gray-900"
+                >Trading Days Available</label
+              >
+              <div class="mt-2.5">
+                <input
+                  readonly
+                  name="days-input"
+                  id="days-input"
+                  class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </form>
-    </section>
+        </form>
+      </section>
       <!-- END: SIMULATION -->
 
       <!-- ADD LINE CHART -->
       <div
         class="mx-auto max-w-2xl relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded mt-8"
       >
-      <canvas id="bankChart"></canvas>
-    </div>
+        <canvas id="bankChart"></canvas>
+      </div>
 
-    <div
+      <div
         class="mx-auto max-w-2xl relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded mt-8"
       >
-      <canvas id="profitLineChart"></canvas>
-    </div>
+        <canvas id="profitLineChart"></canvas>
+      </div>
 
       <div
         class="mx-auto max-w-2xl relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded mt-8"
@@ -171,8 +275,7 @@
             </div>
             <div
               class="relative w-full px-4 max-w-full flex-grow flex-1 text-right"
-            >
-            </div>
+            ></div>
           </div>
         </div>
 
@@ -208,9 +311,7 @@
               </tr>
             </thead>
 
-            <tbody id="trades-body">
-
-            </tbody>
+            <tbody id="trades-body"></tbody>
           </table>
         </div>
       </div>
