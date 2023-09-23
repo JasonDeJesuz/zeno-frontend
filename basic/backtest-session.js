@@ -13,8 +13,8 @@ async function getHistoricalLoopsAdvancedApp() {
   const settings = {
     async: true,
     crossDomain: true,
-    //   url: "https://ill-tan-cockatoo-boot.cyclic.cloud/getHistoricalLoopsAdvancedApp",
-    url: "http://localhost:3000/getHistoricalLoopsAdvancedApp",
+      url: "https://ill-tan-cockatoo-boot.cyclic.cloud/getHistoricalLoopsAdvancedApp",
+    // url: "http://localhost:3000/getHistoricalLoopsAdvancedApp",
     method: "POST",
     headers: {
       "Access-Control-Allow-Origin": "*",
