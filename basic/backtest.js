@@ -22,6 +22,7 @@ $(document).ready(async function () {
   const backtestId = getUrlParameter("id");
   const backtestData = await fetchBacktest(backtestId);
   const trades = backtestData.trades;
+  $('#backtestId').text(backtestId);
   addLineChart(trades);
   addBankLineChart(trades);
   document.querySelector("#trades-body").innerHTML = "";
