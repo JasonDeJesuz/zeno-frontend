@@ -159,10 +159,24 @@ function addBankLineChart(trades) {
 }
 
 function fillInfo(info) {
-  $("#start-date-input").val(info.startDate);
-  $("#end-date-input").val(info.endDate);
+  console.log({ info });
+  $("#start-date-input").val(getDate(info.startDate));
+  $("#end-date-input").val(getDate(info.endDate));
   $("#spreads-input").val(info.bankSpread);
   $("#deposits-input").val(info.deposit);
+}
+
+function getDate(dateString) {
+  // Create a new Date object from the date string
+  let dateObject = new Date(dateString);
+
+  // Extract the year, month, and day parts
+  let year = dateObject.getFullYear();
+  let month = String(dateObject.getMonth() + 1).padStart(2, "0"); // Months are 0-indexed, so we add 1
+  let day = String(dateObject.getDate()).padStart(2, "0");
+
+  // Construct the formatted date string
+  return `${year}-${month}-${day}`;
 }
 
 var getUrlParameter = function getUrlParameter(sParam) {
