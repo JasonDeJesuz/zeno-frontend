@@ -55,6 +55,15 @@ async function fetchBacktest(sessiondId) {
 }
 
 $("#backtest-btn").on("click", async function () {
+  // Disable the button to prevent multiple clicks
+  $("#backtest-btn").prop("disabled", true);
+
+  // Add a loader to the button
+  const originalButtonHTML = $("#backtest-btn").html();
+  $("#backtest-btn").html(
+    '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...'
+  );
+
   const sessionCreationData = await getHistoricalLoopsAdvancedApp();
   const sessionData = await fetchBacktest(sessionCreationData.sessionId);
   const backtests = sessionData.backtests;
@@ -67,6 +76,10 @@ $("#backtest-btn").on("click", async function () {
     const templateResult = templateLoopFunc(data);
     $("#backtests-body").append(templateResult);
   });
+
+  // Restore the original button HTML and re-enable the button
+  $("#backtest-btn").html(originalButtonHTML);
+  $("#backtest-btn").prop("disabled", false);
 });
 
 $(document).ready(function () {

@@ -22,7 +22,7 @@ $(document).ready(async function () {
   const backtestId = getUrlParameter("id");
   const backtestData = await fetchBacktest(backtestId);
   const trades = backtestData.trades;
-  $('#backtestId').text(backtestId);
+  $("#backtestId").text(backtestId);
   addLineChart(trades);
   addBankLineChart(trades);
   document.querySelector("#trades-body").innerHTML = "";
@@ -61,6 +61,21 @@ function addLineChart(trades) {
       ],
     },
     options: {
+      responsive: true,
+      maintainAspectRatio: false, // This allows for flexibility in height
+      plugins: {
+        tooltip: {
+          enabled: false,
+          //   mode: "index",
+          //   intersect: false,
+        },
+        legend: {
+          display: false, // Hide legend on all devices or use a media query to hide on mobile only
+        },
+        title: {
+          display: false, // Hide title on all devices or use a media query to hide on mobile only
+        },
+      },
       scales: {
         x: {
           type: "time",
@@ -105,6 +120,21 @@ function addBankLineChart(trades) {
       ],
     },
     options: {
+      responsive: true,
+      maintainAspectRatio: false, // This allows for flexibility in height
+      plugins: {
+        tooltip: {
+          enabled: false,
+          //   mode: "index",
+          //   intersect: false,
+        },
+        legend: {
+          display: false, // Hide legend on all devices or use a media query to hide on mobile only
+        },
+        title: {
+          display: false, // Hide title on all devices or use a media query to hide on mobile only
+        },
+      },
       scales: {
         x: {
           type: "time",
