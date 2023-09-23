@@ -1,7 +1,5 @@
 // ** AXIOS EXAMPLE **
 
-import { getRandomLaw } from "./script";
-
 async function getHistoricalLoopsAdvancedApp() {
   console.log({
     startDate: $("#start-date-input").val(),
