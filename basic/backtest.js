@@ -23,6 +23,7 @@ $(document).ready(async function () {
   const backtestData = await fetchBacktest(backtestId);
   const trades = backtestData.trades;
   $("#backtestId").text(backtestId);
+  setProfitability(backtestData.totalProfit);
   fillInfo(backtestData);
   addLineChart(trades);
   addBankLineChart(trades);
@@ -156,6 +157,21 @@ function addBankLineChart(trades) {
       },
     },
   });
+}
+
+function setProfitability(profit) {
+  let formattedProfit = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "ZAR",
+  }).format(profit);
+
+  if (profit < 0) {
+    $("#profitability").removeClass("text-green-500").addClass("text-red-500");
+  } else {
+    $("#profitability").removeClass("text-red-500").addClass("text-green-500");
+  }
+
+  $("#profitability").text(formattedProfit);
 }
 
 function fillInfo(info) {
