@@ -23,6 +23,7 @@ $(document).ready(async function () {
   const backtestData = await fetchBacktest(backtestId);
   const trades = backtestData.trades;
   $("#backtestId").text(backtestId);
+  fillInfo(backtestData);
   addLineChart(trades);
   addBankLineChart(trades);
   document.querySelector("#trades-body").innerHTML = "";
