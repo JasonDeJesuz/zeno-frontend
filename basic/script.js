@@ -20,16 +20,3 @@ async function getLoop() {
     return response;
   });
 }
-
-$("#update-submit").on("click", async function () {
-  const loopData = await getLoop();
-  document.querySelector("#loops-body").innerHTML = "";
-  const templateLoop = document.querySelector("#loop-body-template").innerHTML;
-  const templateLoopFunc = Handlebars.compile(templateLoop);
-  console.log(loopData);
-  loopData?.forEach((data) => {
-    const templateResult = templateLoopFunc(data);
-    console.log(templateResult);
-    $("#loops-body").append(templateResult);
-  });
-});
