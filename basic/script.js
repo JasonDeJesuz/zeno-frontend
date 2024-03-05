@@ -4,7 +4,7 @@ async function getLoop() {
   const settings = {
     async: true,
     crossDomain: true,
-    url: "https://ill-tan-cockatoo-boot.cyclic.cloud/getLoop",
+    url: "https://fine-gold-crayfish-suit.cyclic.app/getLoop",
     method: "GET",
     headers: {
       "Access-Control-Allow-Origin": "*",
