@@ -40,7 +40,7 @@ async function fetchBacktest(sessiondId) {
   const settings = {
     async: true,
     crossDomain: true,
-    url: `https://ill-tan-cockatoo-boot.cyclic.cloud/fetchBacktestSession?id=${sessiondId}`,
+    url: `https://fine-gold-crayfish-suit.cyclic.app/fetchBacktestSession?id=${sessiondId}`,
     // url: `http://localhost:3000/fetchBacktestSession?id=${sessiondId}`,
     method: "GET",
     headers: {
