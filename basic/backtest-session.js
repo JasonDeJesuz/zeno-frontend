@@ -13,7 +13,7 @@ async function getHistoricalLoopsAdvancedApp() {
   const settings = {
     async: true,
     crossDomain: true,
-    url: "https://ill-tan-cockatoo-boot.cyclic.cloud/getHistoricalLoopsAdvancedApp",
+    url: "https://fine-gold-crayfish-suit.cyclic.app/getHistoricalLoopsAdvancedApp",
     //url: "http://localhost:3000/getHistoricalLoopsAdvancedApp",
     method: "POST",
     headers: {
