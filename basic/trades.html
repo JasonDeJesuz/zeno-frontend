@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <title>zeno.</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link
+      href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@1.0.0/dist/chartjs-adapter-moment.min.js"></script>
+  </head>
+
+  <header class="bg-white">
+    <nav
+      class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+      aria-label="Global"
+    >
+      <div class="flex lg:flex-1">
+        <a href="#" class="-m-1.5 p-1.5">
+          <span class="sr-only">Your Company</span>
+          <img class="h-16 w-auto" src="./zeno.png" alt="" />
+        </a>
+      </div>
+    </nav>
+    <!-- Mobile menu, show/hide based on menu open state. -->
+    <div class="lg:hidden hidden" role="dialog" aria-modal="true">
+      <!-- Background backdrop, show/hide based on slide-over state. -->
+      <div class="fixed inset-0 z-10"></div>
+      <div
+        class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+      >
+        <div class="flex items-center justify-between">
+          <a href="#" class="-m-1.5 p-1.5">
+            <span class="sr-only">Your Company</span>
+            <img class="h-8 w-auto" src="./zeno.png" alt="" />
+          </a>
+          <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+            <span class="sr-only">Close menu</span>
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <body>
+    <div class="isolate bg-white px-6 pb-24 sm:pb-32 lg:px-8">
+      <div
+        class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
+        aria-hidden="true"
+      >
+        <div
+          class="relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]"
+          style="
+            clip-path: polygon(
+              74.1% 44.1%,
+              100% 61.6%,
+              97.5% 26.9%,
+              85.5% 0.1%,
+              80.7% 2%,
+              72.5% 32.5%,
+              60.2% 62.4%,
+              52.4% 68.1%,
+              47.5% 58.3%,
+              45.2% 34.5%,
+              27.5% 76.7%,
+              0.1% 64.9%,
+              17.9% 100%,
+              27.6% 76.8%,
+              76.1% 97.7%,
+              74.1% 44.1%
+            );
+          "
+        ></div>
+      </div>
+      <div class="mx-auto max-w-2xl">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          Trades
+        </h2>
+        <p
+          class="mt-2 text-lg leading-8 text-gray-600 text-left"
+          id="backtestId"
+        ></p>
+        <p class="mt-2 text-lg leading-8 text-gray-600 text-left" id="law"></p>
+      </div>
+
+      <div class="mt-4 mx-auto max-w-2xl">
+        <h1
+          class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+          id="profitability"
+        ></h1>
+      </div>
+
+      <!-- TODO: Implement the simulation for a trade by passing values -->
+      <!-- START: SIMULATION -->
+      <section id="simulate">
+        <form action="" class="mx-auto mt-4 max-w-2xl sm:mt-8">
+          <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+            <div class="sm:col-span-2">
+              <label
+                for="start-date-input"
+                class="block text-sm font-semibold leading-6 text-gray-900"
+                >Start Date</label
+              >
+              <div class="mt-2.5">
+                <input
+                  readonly
+                  type="date"
+                  name="start-date-input"
+                  id="start-date-input"
+                  class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div class="sm:col-span-2">
+              <label
+                for="end-date-input"
+                class="block text-sm font-semibold leading-6 text-gray-900"
+                >End Date</label
+              >
+              <div class="mt-2.5">
+                <input
+                  readonly
+                  type="date"
+                  name="end-date-input"
+                  id="end-date-input"
+                  class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div class="sm:col-span-2">
+              <label
+                for="spreads-input"
+                class="block text-sm font-semibold leading-6 text-gray-900"
+                >Spreads</label
+              >
+              <div class="mt-2.5">
+                <input
+                  readonly
+                  name="spreads-input"
+                  id="spreads-input"
+                  class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div class="sm:col-span-2">
+              <label
+                for="deposits-input"
+                class="block text-sm font-semibold leading-6 text-gray-900"
+                >Starting Capital</label
+              >
+              <div class="mt-2.5">
+                <input
+                  readonly
+                  name="deposits-input"
+                  id="deposits-input"
+                  class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div class="sm:col-span-2">
+              <label
+                for="result-input"
+                class="block text-sm font-semibold leading-6 text-gray-900"
+                >Ending Capital</label
+              >
+              <div class="mt-2.5">
+                <input
+                  readonly
+                  name="ending-capital-input"
+                  id="ending-capital-input"
+                  class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div class="sm:col-span-2">
+              <label
+                for="profit-input"
+                class="block text-sm font-semibold leading-6 text-gray-900"
+                >Profit</label
+              >
+              <div class="mt-2.5">
+                <input
+                  readonly
+                  name="profit-input"
+                  id="profit-input"
+                  class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div class="sm:col-span-2">
+              <label
+                for="executed-input"
+                class="block text-sm font-semibold leading-6 text-gray-900"
+                >Trades Executed</label
+              >
+              <div class="mt-2.5">
+                <input
+                  readonly
+                  name="executed-input"
+                  id="executed-input"
+                  class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div class="sm:col-span-2">
+              <label
+                for="days-input"
+                class="block text-sm font-semibold leading-6 text-gray-900"
+                >Trading Days Available</label
+              >
+              <div class="mt-2.5">
+                <input
+                  readonly
+                  name="days-input"
+                  id="days-input"
+                  class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+          </div>
+        </form>
+      </section>
+      <!-- END: SIMULATION -->
+
+      <!-- ADD LINE CHART -->
+      <div
+        class="mx-auto max-w-2xl relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded mt-8"
+      >
+        <canvas id="bankChart"></canvas>
+      </div>
+
+      <div
+        class="mx-auto max-w-2xl relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded mt-8"
+      >
+        <canvas id="profitLineChart"></canvas>
+      </div>
+
+      <div
+        class="mx-auto max-w-2xl relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded mt-8"
+      >
+        <div class="rounded-t mb-0 px-4 py-3 border-0">
+          <div class="flex flex-wrap items-center">
+            <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+              <h3 class="font-semibold text-base text-blueGray-700">
+                🔥 Trades
+              </h3>
+            </div>
+            <div
+              class="relative w-full px-4 max-w-full flex-grow flex-1 text-right"
+            ></div>
+          </div>
+        </div>
+
+        <div class="block w-full overflow-x-auto">
+          <table class="items-center bg-transparent w-full border-collapse">
+            <thead>
+              <tr>
+                <th
+                  class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                >
+                  🎯 Date
+                </th>
+                <th
+                  class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                >
+                  🔥 Spread
+                </th>
+                <th
+                  class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                >
+                  💸 Money Out
+                </th>
+                <th
+                  class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                >
+                  💸 Money In
+                </th>
+                <th
+                  class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                >
+                  🤑 Profit
+                </th>
+              </tr>
+            </thead>
+
+            <tbody id="trades-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/flowbite.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="script.js"></script>
+    <script src="backtest.js"></script>
+
+    <script id="trades-body-template" type="text/x-handlebars">
+      <tr>
+        <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
+          {{date}}
+        </th>
+        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+          {{spread}}
+        </td>
+        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+          {{outNorm}}
+        </td>
+        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+          {{bankNorm}}
+        </td>
+        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 {{profitClass profitNorm}}">
+          {{profitNorm}}
+        </td>
+      </tr>
+    </script>
+  </body>
+</html>
