@@ -4,7 +4,7 @@ async function fetchBacktest(sessiondId) {
   const settings = {
     async: true,
     crossDomain: true,
-    url: `https://ill-tan-cockatoo-boot.cyclic.cloud/fetchBacktest?id=${sessiondId}`,
+    url: `https://zeno-arb-backend-production.up.railway.app/fetchBacktest?id=${sessiondId}`,
     // url: `http://localhost:3000/fetchBacktest?id=${sessiondId}`,
     method: "GET",
     headers: {

@@ -13,7 +13,7 @@ async function getHistoricalLoopsAdvancedApp() {
   const settings = {
     async: true,
     crossDomain: true,
-    url: "https://ill-tan-cockatoo-boot.cyclic.cloud/getHistoricalLoopsAdvancedApp",
+    url: "https://zeno-arb-backend-production.up.railway.app/getHistoricalLoopsAdvancedApp",
     //url: "http://localhost:3000/getHistoricalLoopsAdvancedApp",
     method: "POST",
     headers: {
@@ -40,7 +40,7 @@ async function fetchBacktest(sessiondId) {
   const settings = {
     async: true,
     crossDomain: true,
-    url: `https://ill-tan-cockatoo-boot.cyclic.cloud/fetchBacktestSession?id=${sessiondId}`,
+    url: `https://zeno-arb-backend-production.up.railway.app/fetchBacktestSession?id=${sessiondId}`,
     // url: `http://localhost:3000/fetchBacktestSession?id=${sessiondId}`,
     method: "GET",
     headers: {
